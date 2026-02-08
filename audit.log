@@ -1,0 +1,11 @@
+# SentinelDB Audit Log
+# Format:
+# [TIMESTAMP] | SEQ | LEVEL | ACTOR | EVENT | TARGET | RESULT | PREV_HASH | HASH
+
+[2026-02-08T20:01:00Z] | 000001 | INFO | system | server_start | core | success | 00000000 | a94f2c7e1b3a
+[2026-02-08T20:01:01Z] | 000002 | INFO | system | config_load | config.json | success | a94f2c7e1b3a | f12d7a9c4e8b
+[2026-02-08T20:01:05Z] | 000003 | WARN | unknown | invalid_protocol | server | rejected | f12d7a9c4e8b | 7c91d2b0fa63
+[2026-02-08T20:01:09Z] | 000004 | INFO | user:alice | table_read | secrets | success | 7c91d2b0fa63 | b0e3a91c8fd2
+[2026-02-08T20:01:12Z] | 000005 | ERROR | user:alice | table_modify | audit_log | denied | b0e3a91c8fd2 | e8c1a42d9b70
+[2026-02-08T20:01:15Z] | 000006 | CRITICAL | system | integrity_violation | audit_log | detected | e8c1a42d9b70 | 91fa3c7d2e14
+[2026-02-08T20:01:18Z] | 000007 | INFO | system | lockdown | core | enforced | 91fa3c7d2e14 | 4d8e2a9f71c3
